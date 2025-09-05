@@ -91,7 +91,6 @@ contract Crowdfund {
         require(block.timestamp >= c.startAt && block.timestamp <= c.endAt, "Campaign inactive");
         require(msg.value > 0, "Must send ETH");
 
-        // Handle reward if specified
         if (_rewardIndex < campaignRewards[_campaignId].length) {
             Reward storage r = campaignRewards[_campaignId][_rewardIndex];
             require(msg.value >= r.minimumContribution, "Contribution below reward minimum");
@@ -121,9 +120,7 @@ contract Crowdfund {
         // effects
         c.claimed = true;
         uint256 amount = c.pledged;
-        // c.pledged = 0;
 
-        // interaction
         (bool sent, ) = c.creator.call{value: amount}("");
         require(sent, "Transfer failed");
 
@@ -151,7 +148,6 @@ contract Crowdfund {
         emit Refunded(_campaignId, msg.sender, bal);
     }
 
-    // view functions
     function getRewards(uint256 _campaignId) external view returns (Reward[] memory) {
         return campaignRewards[_campaignId];
     }

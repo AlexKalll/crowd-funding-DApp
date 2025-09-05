@@ -464,7 +464,7 @@ export default function Home() {
               </button>
               )}
               <div className="ml-2 lg:ml-0">
-                <h1 className="text-xl font-semibold text-black">Crowdfunding dApp</h1>
+                <h1 className="text-xl font-semibold text-black">Crowdfund dApp</h1>
                 <p className="text-sm text-blue-600 font-medium">Donate, Bring Ideas and Get Funded</p>
               </div>
             </div>
@@ -940,7 +940,7 @@ export default function Home() {
                                       'bg-yellow-100 text-yellow-800'
                                     }`}>
                                       {ur.status === 'claimed' ? 'Claimed' :
-                                       ur.status === 'missed' ? 'Missed due to project goal not met' :
+                                       ur.status === 'missed' ? 'Missed' :
                                        'Eligible'}
                                     </span>
                                     {ur.status === 'eligible' && ur.campaign?.claimed && (

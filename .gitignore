@@ -3,3 +3,4 @@ cache
 artifacts
 dist
 .env
+typechain-types
